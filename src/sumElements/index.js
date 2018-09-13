@@ -11,7 +11,14 @@
  * sumElements([Infinity, NaN, 1]); // 1
  */
 const sumElements = arr => {
-  /* your logic here...*/
-};
+  return Array.from(arr).reduce((sum, value) => {
+    if (Array.isArray(value)) {
+      sum += getSum.apply(this, value)
+    } else {
+      sum += Number(value)
+    }
+    return sum
+  }, 0)
+}
 
 export default sumElements;
